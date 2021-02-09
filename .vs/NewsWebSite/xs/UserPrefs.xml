@@ -1,0 +1,40 @@
+﻿<Properties StartupConfiguration="{959D7B04-EC93-4EAB-A840-E868D688C8D1}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="NewsWebSite/Startup.cs">
+    <Files>
+      <File FileName="NewsWebSite/Controllers/HomeController.cs" Line="24" Column="1" />
+      <File FileName="NewsWebSite/Models/ArticleModel.cs" />
+      <File FileName="NewsWebSite/Views/Home/Test.cshtml" />
+      <File FileName="NewsWebSite/Views/Home/Privacy.cshtml" />
+      <File FileName="NewsWebSite/Views/Home/Index.cshtml" />
+      <File FileName="NewsWebSite/Views/Shared/_Layout.cshtml" Line="14" Column="13" />
+      <File FileName="NewsWebSite/Startup.cs" Line="70" Column="85" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="NewsWebSite" expanded="True">
+            <Node name="NewsWebSite" expanded="True">
+              <Node name="Controllers" expanded="True" />
+              <Node name="Models" expanded="True" />
+              <Node name="Views" expanded="True">
+                <Node name="Home" expanded="True" />
+                <Node name="Shared" expanded="True" />
+              </Node>
+              <Node name="Startup.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.NewsWebSite PreferredExecutionTarget="/Applications/Yandex.app" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
