@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using NewsWebSite.Models;
+using System.Windows.Forms.ListControl;
+
 
 namespace NewsWebSite.Controllers
 {
@@ -19,10 +21,35 @@ namespace NewsWebSite.Controllers
         }
 
 
-        public IActionResult Test()
+        public async Task<IActionResult> TestAsync()
         {
-            return View(new ArticleModel { Id = 1, Title = "test", Body = "test" });
+            try
+            {
+                using (var connection = new MySql.Data.MySqlClient.MySqlConnection("server=127.0.0.1;uid=root;pwd=root;database=dbo"))
+                {
+                    await connection.OpenAsync();
+                    var command = connection.CreateCommand();
+                    command.CommandText = "select * from article";
+                    var reader = await command.ExecuteReaderAsync();
+                    List <string> data = new List <string>();
+                    //ListBox listBox1 = new ListBox ();
+
+                    while (await reader.ReadAsync())
+                    {
+                         await data.Add(reader["id"].ToString() + " " + reader["title"] + " " + reader["body"]);
+                       
+                }
+            }
+            catch (Exception e)
+            {
+               // await context.Response.WriteAsync(e.ToString());
+            }
         }
+            return View(data);
+        }
+
+
+        
 
         public IActionResult Index()
         {
