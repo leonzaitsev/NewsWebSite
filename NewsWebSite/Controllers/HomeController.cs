@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using NewsWebSite.Models;
-using System.Windows.Forms.ListControl;
 
 
 namespace NewsWebSite.Controllers
@@ -23,33 +22,21 @@ namespace NewsWebSite.Controllers
 
         public async Task<IActionResult> TestAsync()
         {
-            try
+            IList<string> data = new List<string>();
+            using (var connection = new MySql.Data.MySqlClient.MySqlConnection("server=127.0.0.1;uid=root;pwd=root;database=dbo"))
             {
-                using (var connection = new MySql.Data.MySqlClient.MySqlConnection("server=127.0.0.1;uid=root;pwd=root;database=dbo"))
-                {
-                    await connection.OpenAsync();
-                    var command = connection.CreateCommand();
-                    command.CommandText = "select * from article";
-                    var reader = await command.ExecuteReaderAsync();
-                    List <string> data = new List <string>();
-                    //ListBox listBox1 = new ListBox ();
+                await connection.OpenAsync();
+                var command = connection.CreateCommand();
+                command.CommandText = "select * from article";
+                var reader = await command.ExecuteReaderAsync();
 
-                    while (await reader.ReadAsync())
-                    {
-                         await data.Add(reader["id"].ToString() + " " + reader["title"] + " " + reader["body"]);
-                       
+                while (await reader.ReadAsync())
+                {
+                    data.Add(reader["id"].ToString() + " " + reader["title"] + " " + reader["body"]);
                 }
             }
-            catch (Exception e)
-            {
-               // await context.Response.WriteAsync(e.ToString());
-            }
-        }
             return View(data);
         }
-
-
-        
 
         public IActionResult Index()
         {
